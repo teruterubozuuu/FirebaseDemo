@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import {getDocs, collection, deleteDoc, doc, onSnapshot} from 'firebase/firestore';
+import {getDocs, collection, deleteDoc, doc, onSnapshot, updateDoc} from 'firebase/firestore';
 import {db} from '../firebase/config'
 import { useEffect,useState } from 'react';
 import DeleteIcon from '../assets/delete.svg'
@@ -43,6 +43,10 @@ export default function Home() {
     );
   }
 
+  const handleEdit = async (id) =>{
+    
+  }
+
   return (
     <div className="home">
       <h2>Articles</h2>      
@@ -56,6 +60,7 @@ export default function Home() {
             onClick={() => handleDelete(article.id)}
             src={DeleteIcon} alt="delete icon" 
           />
+          <button style={{float:"right"}} onClick={() => handleEdit(article.id)} >Edit</button>
         </div>
       ))}
     </div>

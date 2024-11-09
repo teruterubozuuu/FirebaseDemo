@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import {getDoc, doc} from 'firebase/firestore';
 import {db} from '../firebase/config'
 import { useEffect,useState } from 'react';
+import DeleteIcon from '../assets/delete.svg'
 
 export default function Article() {
   const { urlId } = useParams()
@@ -19,6 +20,10 @@ export default function Article() {
       })
 
   },[])  
+
+  const handleEdit = () => {
+
+  }
   
 
   // if (!article) {
@@ -35,6 +40,7 @@ export default function Article() {
           <h2>{article.title}</h2>
           <p>By {article.author}</p>
           <p>{article.description}</p>
+          <button onClick={() => handleEdit(article.id)} >Edit</button>
         </div>
       )}
     </div>
